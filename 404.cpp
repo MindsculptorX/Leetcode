@@ -8,3 +8,17 @@
         return sumOfLeftLeaves(root->left)+sumOfLeftLeaves(root->right);
         
     }
+
+
+    //方法2:构建内置迭代
+   int sumtemp(TreeNode* root,bool isleft){
+        if(root==NULL)
+            return 0; 
+        if(root->left==NULL && root->right==NULL){
+            if(isleft)
+                return root->val;
+            else
+                return 0;
+        }
+        return sumtemp(root->left,1)+sumtemp(root->right,0);
+    }
